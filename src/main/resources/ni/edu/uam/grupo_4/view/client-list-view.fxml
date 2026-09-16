@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="root" onKeyPressed="#handleKeyPressed" prefHeight="720.0" prefWidth="1150.0"
+            stylesheets="@../css/application.css" xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="ni.edu.uam.grupo_4.controller.ClientListController">
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="16.0" styleClass="page-header">
+            <padding><Insets bottom="24.0" left="45.0" right="45.0" top="24.0"/></padding>
+            <VBox spacing="4.0">
+                <Label styleClass="eyebrow-light" text="CLIENTES"/>
+                <Label styleClass="header-title" text="Consulta de registros"/>
+            </VBox>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button onAction="#backToMain" styleClass="header-button" text="← Menú principal"/>
+        </HBox>
+    </top>
+    <center>
+        <VBox spacing="20.0" styleClass="page">
+            <padding><Insets bottom="36.0" left="45.0" right="45.0" top="30.0"/></padding>
+            <HBox alignment="CENTER_LEFT" spacing="12.0">
+                <VBox spacing="5.0">
+                    <Label styleClass="page-title" text="Clientes registrados"/>
+                    <Label styleClass="muted" text="Doble clic o Enter para abrir el detalle. Suprimir elimina el registro."/>
+                </VBox>
+                <Region HBox.hgrow="ALWAYS"/>
+                <TextField fx:id="searchField" prefWidth="285.0" promptText="Buscar por nombre, tipo o ciudad..."/>
+                <Button onAction="#reload" styleClass="secondary-button" text="Actualizar"/>
+                <Button onAction="#openRegistration" styleClass="primary-button" text="＋ Nuevo cliente"/>
+            </HBox>
+            <TableView fx:id="clientTable" onMouseClicked="#handleTableClick" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="nameColumn" prefWidth="270.0" text="Nombre completo"/>
+                    <TableColumn fx:id="typeColumn" prefWidth="145.0" text="Tipo de cliente"/>
+                    <TableColumn fx:id="cityColumn" prefWidth="150.0" text="Ciudad"/>
+                    <TableColumn fx:id="birthDateColumn" prefWidth="155.0" text="Nacimiento"/>
+                    <TableColumn fx:id="requestColumn" prefWidth="175.0" text="Tipo de solicitud"/>
+                </columns>
+                <contextMenu>
+                    <ContextMenu>
+                        <items>
+                            <MenuItem onAction="#openSelected" text="Ver detalle / Editar"/>
+                            <SeparatorMenuItem/>
+                            <MenuItem onAction="#deleteSelected" text="Eliminar cliente"/>
+                        </items>
+                    </ContextMenu>
+                </contextMenu>
+                <placeholder><Label styleClass="muted" text="No hay clientes registrados o no existen coincidencias."/></placeholder>
+            </TableView>
+            <HBox alignment="CENTER_RIGHT" spacing="10.0">
+                <Button onAction="#backToMain" styleClass="ghost-button" text="Volver"/>
+                <Button onAction="#deleteSelected" styleClass="danger-button" text="Eliminar"/>
+                <Button onAction="#openSelected" styleClass="primary-button" text="Ver detalle"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

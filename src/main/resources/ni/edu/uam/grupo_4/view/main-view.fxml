@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="root" onKeyPressed="#handleKeyPressed" prefHeight="720.0" prefWidth="1100.0"
+            stylesheets="@../css/application.css" xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="ni.edu.uam.grupo_4.controller.MainController">
+    <top>
+        <VBox>
+            <MenuBar>
+                <menus>
+                    <Menu text="Archivo">
+                        <items>
+                            <MenuItem onAction="#exportClients" text="Exportar clientes a CSV"/>
+                            <SeparatorMenuItem/>
+                            <MenuItem onAction="#logout" text="Cerrar sesión"/>
+                            <MenuItem onAction="#exit" text="Salir"/>
+                        </items>
+                    </Menu>
+                    <Menu text="Clientes">
+                        <items>
+                            <MenuItem onAction="#openRegistration" text="Registrar cliente"/>
+                            <MenuItem onAction="#openClientList" text="Consultar clientes"/>
+                        </items>
+                    </Menu>
+                    <Menu text="Ayuda">
+                        <items><MenuItem onAction="#showSummaryDialog" text="Resumen del sistema"/></items>
+                    </Menu>
+                </menus>
+            </MenuBar>
+            <ToolBar styleClass="app-toolbar">
+                <Button onAction="#openRegistration" styleClass="toolbar-button" text="＋ Nuevo cliente"/>
+                <Button onAction="#openClientList" styleClass="toolbar-button" text="⌕ Consultar"/>
+                <Button onAction="#exportClients" styleClass="toolbar-button" text="⇩ Exportar"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button onAction="#logout" styleClass="toolbar-button" text="Cerrar sesión"/>
+            </ToolBar>
+        </VBox>
+    </top>
+    <center>
+        <VBox spacing="28.0" styleClass="page">
+            <padding><Insets bottom="42.0" left="55.0" right="55.0" top="42.0"/></padding>
+            <contextMenu>
+                <ContextMenu>
+                    <items>
+                        <MenuItem onAction="#openRegistration" text="Registrar cliente"/>
+                        <MenuItem onAction="#openClientList" text="Consultar clientes"/>
+                        <MenuItem onAction="#exportClients" text="Exportar información"/>
+                    </items>
+                </ContextMenu>
+            </contextMenu>
+            <VBox spacing="7.0">
+                <Label styleClass="eyebrow" text="PANEL PRINCIPAL"/>
+                <Label styleClass="page-title" text="Gestión de clientes y solicitudes"/>
+                <Label styleClass="muted" text="Seleccione una función para comenzar. También puede usar el menú contextual con clic derecho."/>
+            </VBox>
+            <HBox spacing="20.0">
+                <VBox spacing="14.0" styleClass="action-card" HBox.hgrow="ALWAYS">
+                    <Label styleClass="card-icon" text="＋"/>
+                    <Label styleClass="card-title" text="Registrar cliente"/>
+                    <Label styleClass="muted" text="Capture datos personales, solicitud, servicios y fotografía." wrapText="true"/>
+                    <Region VBox.vgrow="ALWAYS"/>
+                    <Button onAction="#openRegistration" styleClass="link-button" text="Abrir registro  →"/>
+                </VBox>
+                <VBox spacing="14.0" styleClass="action-card" HBox.hgrow="ALWAYS">
+                    <Label styleClass="card-icon" text="⌕"/>
+                    <Label styleClass="card-title" text="Consultar clientes"/>
+                    <Label styleClass="muted" text="Busque, consulte, edite o elimine los registros existentes." wrapText="true"/>
+                    <Region VBox.vgrow="ALWAYS"/>
+                    <Button onAction="#openClientList" styleClass="link-button" text="Abrir consulta  →"/>
+                </VBox>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="18.0" styleClass="summary-card">
+                <VBox spacing="4.0">
+                    <Label styleClass="eyebrow" text="CLIENTES REGISTRADOS"/>
+                    <Label fx:id="clientCountLabel" styleClass="metric" text="0"/>
+                </VBox>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button onAction="#showSummaryDialog" styleClass="secondary-button" text="Ver resumen"/>
+                <Button onAction="#exportClients" styleClass="primary-button" text="Exportar CSV"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>
