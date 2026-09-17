@@ -13,6 +13,8 @@ public class MainController {
     @FXML private Label lblResumen;
     @FXML private ListView<String> lstAcciones;
 
+    // Al ingresar un registro de usuario al sistema, el sistema agrega su nombre y
+    // presenta las posibles acciones a realizar.
     @FXML
     private void initialize() {
         lblUsuario.setText("Usuario: " + AppData.getUsuarioActual());
@@ -54,6 +56,7 @@ public class MainController {
         dialog.showAndWait();
     }
 
+    // Confirmacion antes de cerrar el sistema.
     @FXML
     private void cerrarAplicacion(ActionEvent event) {
         Alert confirm = new Alert(Alert.AlertType.CONFIRMATION, "¿Desea cerrar el sistema?", ButtonType.YES, ButtonType.NO);
@@ -64,6 +67,7 @@ public class MainController {
     @FXML
     private void contextMenu(ContextMenuEvent event) { }
 
+    // Verificacion de errores y su existencia
     private void abrir(String fxml, String title, double width, double height) {
         try { Navigator.open(fxml, title, width, height, true); }
         catch (Exception ex) { new Alert(Alert.AlertType.ERROR, "Error al abrir la ventana: " + ex.getMessage()).showAndWait(); }
