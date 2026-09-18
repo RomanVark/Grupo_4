@@ -17,7 +17,15 @@ public final class Ventanas {
     private Ventanas() { }
 
     public static <T> Stage Cargar(String archivo, String titulo, Window owner, Consumer<T> configurar)
-        throws Exception
+        throws IOException {
+        URL recurso = Ventanas.class.getResource("/grupo_4/view/" + archivo);
+        if (recurso == null) {
+            throw new IOException("No se pudo encontrar el recurso: " + archivo);
+        }
+        FXMLLoader = loader = new FXMLLoader(recurso);
+        Parent root = loader.load();
+        
+    }
 
 
 }
