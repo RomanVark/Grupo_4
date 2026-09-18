@@ -38,7 +38,7 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
-        <!-- Source: https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -54,8 +54,14 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.13.0</version>
                 <configuration>
-                    <source>21</source>
-                    <target>21</target>
+                    <release>21</release>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>1.18.48</version>
+                        </path>
+                    </annotationProcessorPaths>
                 </configuration>
             </plugin>
             <plugin>
@@ -64,18 +70,6 @@
                 <version>0.0.8</version>
                 <configuration>
                     <mainClass>grupo_4.Main</mainClass>
-                </configuration>
-            </plugin>
-            <plugin>
-                <configuration>
-                    <release>21</release>
-                    <annotationProcessorPaths>
-                        <path>
-                            <groupId>org.projectlombokl</groupId>
-                            <artifact>lombok</artifact>
-                            <version>1.18.48</version>
-                        </path>
-                    </annotationProcessorPaths>
                 </configuration>
             </plugin>
         </plugins>
