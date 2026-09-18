@@ -14,12 +14,12 @@ public class Main extends Application {
     public void start(Stage stage) throws Exception {
 
         URL fxmlLocation = Main.class.getResource(
-                "/grupo_4/clientes/login.fxml"
+                "/grupo_4/view/login.fxml"
         );
 
         Objects.requireNonNull(
                 fxmlLocation,
-                "No se encontró /grupo_4/clientes/login.fxml"
+                "No se encontró /grupo_4/view/login.fxml"
         );
 
         FXMLLoader loader = new FXMLLoader(fxmlLocation);

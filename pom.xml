@@ -68,7 +68,7 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.8</version>
                 <configuration>
-                    <mainClass>grupo_4.clientes.Main</mainClass>
+                    <mainClass>grupo_4/grupo_4.Launcher</mainClass>
                 </configuration>
             </plugin>
         </plugins>
