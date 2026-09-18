@@ -10,5 +10,6 @@ public class Sesion {
     }
 
     public char[] getUsuario() {
+        return null;
     }
 }

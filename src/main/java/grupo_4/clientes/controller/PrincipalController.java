@@ -1,7 +1,6 @@
 package grupo_4.clientes.controller;
 
 import grupo_4.clientes.Ventanas;
-import grupo_4.clientes.controller.RegistroController;
 import grupo_4.clientes.model.Cliente;
 import grupo_4.clientes.model.Sesion;
 import javafx.beans.binding.Bindings;
@@ -125,7 +124,7 @@ public class PrincipalController {
                     .append("Ciudad: ").append(cliente.getCiudad()).append("\n")
                     .append("Nacimiento: ").append(cliente.getFechaNacimiento()).append("\n")
                     .append("Solicitud: ").append(cliente.getTipoSolicitud()).append("\n")
-                    .append("Servicios: ").append(String.join(", ", cliente.getServicios()))
+                    .append("Servicios: ").append(cliente.getServiciosTexto())
                     .append("\n\n");
         }
         // Se genera un nombre único para no sobrescribir otro informe.
