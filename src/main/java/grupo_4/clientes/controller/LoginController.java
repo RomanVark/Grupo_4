@@ -13,7 +13,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-import java.awt.*;
 
 public class LoginController {
     @FXML private TextField txtUsuario;
@@ -32,7 +31,7 @@ public class LoginController {
 
     private void acceder() {
         String usuario = txtUsuario.getText().trim();
-        String clave = txtClave.getText().trim();
+        String clave = txtClave.getText();
         if (usuario.isBlank() || clave.isBlank()) {
             Ventanas.alerta(stage(), Alert.AlertType.WARNING, "Ingrese su usuario y contraseña");
             return;
