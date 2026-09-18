@@ -1,19 +1,33 @@
 package grupo_4;
 
-import grupo_4.clientes.Ventanas;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.net.URL;
+import java.util.Objects;
+
 public class Main extends Application {
+
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(Main.class.getResource("/grupo_4/view/login.fxml"));
-        stage.setScene(new Scene(loader.load()));
-        stage.setTitle("Gestión de clientes | Acceso");
+
+        URL fxmlLocation = Main.class.getResource(
+                "/grupo_4/clientes/login.fxml"
+        );
+
+        Objects.requireNonNull(
+                fxmlLocation,
+                "No se encontró /grupo_4/clientes/login.fxml"
+        );
+
+        FXMLLoader loader = new FXMLLoader(fxmlLocation);
+        Scene scene = new Scene(loader.load());
+
+        stage.setTitle("Sistema de gestión de clientes");
+        stage.setScene(scene);
         stage.setResizable(false);
-        Ventanas.confirmarCierre(stage);
         stage.show();
     }
 
