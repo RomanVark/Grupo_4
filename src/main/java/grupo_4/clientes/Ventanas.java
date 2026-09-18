@@ -1,4 +1,4 @@
-package grupo_4;
+package grupo_4.clientes;
 
 public class Ventanas {
 }
