@@ -5,13 +5,13 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="CENTER_LEFT" prefHeight="430" prefWidth="460" spacing="14" styleClass="page" stylesheets="@../css/estilos.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="grupo_4.clientes.controller.LoginController">
+<VBox alignment="CENTER_LEFT" prefHeight="520" prefWidth="460" spacing="14" styleClass="page" stylesheets="@../css/estilos.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="grupo_4.clientes.controller.LoginController">
     <padding><Insets bottom="32" left="36" right="36" top="32" /></padding>
-   <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-      <image>
-         <Image url="@../Image/UAMLOGO.png" />
-      </image>
-   </ImageView>
+    <ImageView fitHeight="70.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+        <image>
+            <Image url="@../Image/UAMLOGO.png" />
+        </image>
+    </ImageView>
     <Label styleClass="eyebrow" text="GESTIÓN DE CLIENTES" />
     <Label styleClass="title" text="Iniciar sesión" />
     <Label text="Usuario" />
