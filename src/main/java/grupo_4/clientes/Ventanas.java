@@ -1,18 +1,23 @@
 package grupo_4.clientes;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
-public class Ventanas {
-    public static void alerta(Stage stage, Alert.AlertType alertType, String ingreseSuUsuarioYContraseña) {
-    }
+import java.io.IOException;
+import java.net.URL;
+import java.util.function.Consumer;
 
-    public static void confirmarCierre(Stage principal) {
-    }
+public final class Ventanas {
+    private Ventanas() { }
 
-    public static void salir(Stage stage) {
-    }
+    public static <T> Stage Cargar(String archivo, String titulo, Window owner, Consumer<T> configurar)
+        throws Exception
 
-    public static Stage cargar(String s, String gestiónDeClientes, Object o, Object o1) {
-    }
+
 }
