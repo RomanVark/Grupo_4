@@ -1,14 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="grupo_4.clientes.controller.PrincipalController"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="grupo_4.controller.PrincipalController"
+            prefWidth="860" prefHeight="590" stylesheets="@../css/estilos.css">
+    <top>
+        <VBox>
+            <MenuBar>
+                <menus>
+                    <Menu text="Archivo">
+                        <items>
+                            <MenuItem text="Exportar informe..." onAction="#exportarInforme"/>
+                            <SeparatorMenuItem/>
+                            <MenuItem text="Salir" onAction="#salir"/>
+                        </items>
+                    </Menu>
+                    <Menu text="Clientes">
+                        <items>
+                            <MenuItem text="Registrar cliente" onAction="#abrirRegistro"/>
+                            <MenuItem text="Consultar clientes" onAction="#abrirConsulta"/>
+                        </items>
+                    </Menu>
+                    <Menu text="Ayuda">
+                        <items><MenuItem text="Acerca de" onAction="#acercaDe"/></items>
+                    </Menu>
+                </menus>
+            </MenuBar>
+            <ToolBar>
+                <items>
+                    <Button text="Registrar" onAction="#abrirRegistro"/>
+                    <Button text="Consultar" onAction="#abrirConsulta"/>
+                    <Separator orientation="VERTICAL"/>
+                    <Button text="Exportar informe" onAction="#exportarInforme"/>
+                </items>
+            </ToolBar>
+        </VBox>
+    </top>
+    <center>
+        <VBox spacing="16" styleClass="page">
+            <padding><Insets top="26" right="30" bottom="26" left="30"/></padding>
+            <Label text="Clientes y solicitudes" styleClass="title"/>
+            <Label fx:id="lblUsuario" text="Sesión" styleClass="muted"/>
+            <HBox spacing="12">
+                <Button text="Registrar cliente" onAction="#abrirRegistro" styleClass="primary"/>
+                <Button text="Consultar clientes" onAction="#abrirConsulta"/>
+            </HBox>
+            <Label text="Clientes registrados" styleClass="section-title"/>
+            <Label text="Selecciona un cliente y haz clic derecho para ver su detalle." styleClass="muted"/>
+            <ListView fx:id="listaClientes" VBox.vgrow="ALWAYS">
+                <contextMenu>
+                    <ContextMenu>
+                        <items><MenuItem text="Ver detalle del seleccionado" onAction="#verSeleccionado"/></items>
+                    </ContextMenu>
+                </contextMenu>
+            </ListView>
+            <Label fx:id="lblTotal" text="Clientes registrados: 0"/>
+        </VBox>
+    </center>
+    <bottom>
+        <Label text="Los registros se conservan durante esta ejecución. Exporta un informe si lo necesitas."
+               wrapText="true" styleClass="footer" maxWidth="Infinity"/>
+    </bottom>
+</BorderPane>
