@@ -24,7 +24,14 @@ public final class Ventanas {
         }
         FXMLLoader = loader = new FXMLLoader(recurso);
         Parent root = loader.load();
-        
+        T controller = loader.getController();
+        if (configurar != null) configurar.accept(controller); // recibe los datos antes de mostrar la ventana
+        Stage stage = new Stage();
+        if (owner != null) {
+            stage.initOwner(owner);
+            stage.initModality(Modality.WINDOW_MODAL);
+        }
+
     }
 
 
