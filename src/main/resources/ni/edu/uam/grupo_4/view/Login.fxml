@@ -1,18 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="382.0" prefWidth="578.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="382.0" prefWidth="526.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
    <top>
-      <HBox prefHeight="100.0" prefWidth="578.0" BorderPane.alignment="CENTER">
+      <HBox prefHeight="60.0" prefWidth="578.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Image/LogoUAM.png" />
-               </image></ImageView>
-            <Label text="GESTIÓN DE CLIENTES" />
+                  <Image url="@../Image/ChatGPT%20Image%2017%20sept%202026,%2013_24_09.png" />
+               </image>
+               <HBox.margin>
+                  <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+               </HBox.margin></ImageView>
+            <Label text="GESTIÓN DE CLIENTES">
+               <font>
+                  <Font name="System Bold Italic" size="34.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+               </HBox.margin>
+               <textFill>
+                  <RadialGradient centerX="0.5" centerY="0.5189274447949527" radius="0.6908396218569225">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color green="0.6175000071525574" blue="0.6499999761581421" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color green="0.6117647290229797" blue="0.6666666865348816" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </textFill></Label>
          </children>
       </HBox>
    </top>
