@@ -1,15 +1,13 @@
 package grupo_4.clientes.model;
 
-import javafx.beans.binding.Bindings;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
+@Getter
+@AllArgsConstructor
 public class Sesion {
-    public Sesion(String usuario) {
-    }
-
-    public Bindings getClientes() {
-    }
-
-    public char[] getUsuario() {
-        return null;
-    }
+    private final String usuario;
+    private final ObservableList<Cliente> clientes = FXCollections.observableArrayList();
 }
