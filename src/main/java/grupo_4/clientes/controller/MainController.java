@@ -1,4 +1,4 @@
-package com.empresa.solicitudes.controller;
+package grupo_4.clientes.controller;
 
 import com.empresa.solicitudes.util.AppData;
 import com.empresa.solicitudes.util.Navigator;
