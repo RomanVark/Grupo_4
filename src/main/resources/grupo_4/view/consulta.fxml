@@ -1,14 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="grupo_4.clientes.controller.ConsultaController"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="grupo_4.clientes.controller.ConsultaController"
+      spacing="16" prefWidth="930" prefHeight="540"
+      stylesheets="@../css/estilos.css" styleClass="page">
+    <padding><Insets top="26" right="30" bottom="26" left="30"/></padding>
+    <Label text="Consultar clientes" styleClass="title"/>
+    <Label text="Haz doble clic en una fila para ver los datos y la fotografía." styleClass="muted"/>
+    <TableView fx:id="tablaClientes" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colNombre" text="Nombre completo" prefWidth="240"/>
+            <TableColumn fx:id="colTipo" text="Tipo" prefWidth="140"/>
+            <TableColumn fx:id="colCiudad" text="Ciudad" prefWidth="130"/>
+            <TableColumn fx:id="colNacimiento" text="Nacimiento" prefWidth="145"/>
+            <TableColumn fx:id="colSolicitud" text="Solicitud" prefWidth="165"/>
+        </columns>
+        <contextMenu>
+            <ContextMenu>
+                <items><MenuItem text="Ver detalle" onAction="#verDetalle"/></items>
+            </ContextMenu>
+        </contextMenu>
+    </TableView>
+    <HBox spacing="10">
+        <Button text="Ver detalle" onAction="#verDetalle" styleClass="primary"/>
+        <Button text="Volver al principal" onAction="#volver"/>
+    </HBox>
+</VBox>
