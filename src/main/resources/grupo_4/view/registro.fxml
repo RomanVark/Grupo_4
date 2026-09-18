@@ -1,14 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
-
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="grupo_4.clientes.controller.DetalleController"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="grupo_4.clientes.controller.RegistroController"
+      spacing="16" prefWidth="820" prefHeight="620"
+      stylesheets="@../css/estilos.css" styleClass="page">
+    <fx:define><ToggleGroup fx:id="grupoSolicitud"/></fx:define>
+    <padding><Insets top="26" right="30" bottom="26" left="30"/></padding>
+    <Label text="Registrar cliente" styleClass="title"/>
+    <HBox spacing="20" VBox.vgrow="ALWAYS">
+        <VBox spacing="10" HBox.hgrow="ALWAYS">
+            <GridPane hgap="14" vgap="14">
+                <Label text="Nombres" GridPane.rowIndex="0"/>
+                <TextField fx:id="txtNombres" promptText="Ana María" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                <Label text="Apellidos" GridPane.rowIndex="1"/>
+                <TextField fx:id="txtApellidos" promptText="López Pérez" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                <Label text="Tipo de cliente" GridPane.rowIndex="2"/>
+                <ComboBox fx:id="cmbTipo" promptText="Selecciona" maxWidth="Infinity" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                <Label text="Ciudad" GridPane.rowIndex="3"/>
+                <ComboBox fx:id="cmbCiudad" promptText="Selecciona" maxWidth="Infinity" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                <Label text="Fecha de nacimiento" GridPane.rowIndex="4"/>
+                <DatePicker fx:id="dpNacimiento" maxWidth="Infinity" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+            </GridPane>
+            <Label text="Tipo de solicitud"/>
+            <HBox spacing="12">
+                <RadioButton text="Información" toggleGroup="$grupoSolicitud"/>
+                <RadioButton text="Contratación" toggleGroup="$grupoSolicitud"/>
+                <RadioButton text="Reclamo" toggleGroup="$grupoSolicitud"/>
+            </HBox>
+            <Label text="Servicios de interés"/>
+            <HBox spacing="12">
+                <CheckBox fx:id="chkInternet" text="Internet"/>
+                <CheckBox fx:id="chkTelefonia" text="Telefonía"/>
+                <CheckBox fx:id="chkSoporte" text="Soporte técnico"/>
+            </HBox>
+        </VBox>
+        <VBox spacing="10" prefWidth="200" alignment="TOP_CENTER">
+            <Label text="Fotografía" styleClass="section-title"/>
+            <StackPane prefHeight="200" styleClass="photo-box">
+                <ImageView fx:id="imgFoto" fitWidth="170" fitHeight="190" preserveRatio="true"/>
+            </StackPane>
+            <Button text="Seleccionar fotografía" onAction="#seleccionarFoto"/>
+            <Label fx:id="lblFoto" text="Fotografía opcional" wrapText="true" styleClass="muted"/>
+        </VBox>
+    </HBox>
+    <HBox spacing="10">
+        <Button text="Guardar" onAction="#guardar" styleClass="primary"/>
+        <Button text="Limpiar" onAction="#limpiar"/>
+        <Button text="Cancelar" onAction="#cancelar"/>
+    </HBox>
+</VBox>
